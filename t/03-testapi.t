@@ -183,6 +183,16 @@ subtest 'script_run' => sub {
     $fake_exit = 1;
     is(script_run('false'), '1', 'script_run with no check of success, returns exit code');
     is(script_run('false', 0), undef, 'script_run with no check of success, returns undef when not waiting');
+
+    # Test if TIMEOUT_SCALE variable is well honored
+    $bmwqemu::vars{TIMEOUT_SCALE} = '4';
+    my $test_timeout = 2;
+    my $expected_timeout = $test_timeout * $bmwqemu::vars{TIMEOUT_SCALE};
+    my $time_begin = [gettimeofday()];
+    script_run "sleep $expected_timeout", $test_timeout;
+    my $real_timeout = int(tv_interval($time_begin));
+    $fake_exit = 0;
+    is($real_timeout eq $expected_timeout, '0', 'script_run with TIMEOUT_SCALE value setting, need to honor it');
 };
 
 subtest 'check_assert_screen' => sub {
