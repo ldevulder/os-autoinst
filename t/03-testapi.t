@@ -8,6 +8,7 @@ use Test::Fatal;
 use Test::Mock::Time;
 use Test::Warnings;
 use File::Temp;
+use Time::HiRes qw(gettimeofday tv_interval);
 
 BEGIN {
     unshift @INC, '..';
