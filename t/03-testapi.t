@@ -193,7 +193,7 @@ subtest 'script_run' => sub {
     script_run "sleep $expected_timeout", $test_timeout;
     my $real_timeout = int(tv_interval($time_begin));
     $fake_exit = 0;
-    is($real_timeout eq $expected_timeout, '0', 'script_run with TIMEOUT_SCALE value setting, need to honor it');
+    ok($real_timeout eq $expected_timeout, 'script_run with TIMEOUT_SCALE value setting');
 };
 
 subtest 'check_assert_screen' => sub {
