@@ -63,6 +63,7 @@ sub add_console {
         'amt-sol'           => 'amtSol',
         'ipmi-sol'          => 'ipmiSol',
         'ipmi-xterm'        => 'sshXtermIPMI',
+        'rpi-xterm'         => 'sshXtermRPi',
     );
     my $required_type = $class_names{$backend_console} || $backend_console;
     my $location      = "consoles/$required_type.pm";

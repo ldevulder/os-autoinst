@@ -1284,8 +1284,8 @@ sub check_ssh_serial {
 
 =head2 run_ssh_cmd
 
-   $ret = run_ssh_cmd($cmd [, username => ?][, password => ?][,host => ?]);
-   ($ret, $stdout, $stderr) = run_ssh_cmd($cmd [, username => ?][, password => ?][,host => ?], wantarray => 1);
+   $ret = run_ssh_cmd($cmd [, username => ?][, password => ?][, hostname => ?]);
+   ($ret, $stdout, $stderr) = run_ssh_cmd($cmd [, username => ?][, password => ?][, hostname => ?], wantarray => 1);
 
 =cut
 sub run_ssh_cmd {
